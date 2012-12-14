@@ -1,0 +1,42 @@
+#!/bin/bash
+# This is a simple script and will be executed on your CI system if 
+# available.  Otherwise it will execute while your application is stopped
+# before the build step.  This script gets executed directly, so it
+# could be python, php, ruby, etc.
+
+#DEMO_URL="ftp://ftp.fu-berlin.de/pc/msdos/games/idgames/idstuff/quake2/q2-314-demo-x86.exe"
+
+# Hi-Rez texture/models is too big
+#TEXTURE_URL="http://www-personal.umich.edu/~jimw/q2/Quake2_tga_textures/q2_textures.zip"
+#MODELS_URL="http://www-personal.umich.edu/~jimw/q2/aq2_install/models.zip"
+
+#if [[ ! -d $OPENSHIFT_DATA_DIR/baseq2 ]] 
+#then
+#  pushd $OPENSHIFT_DATA_DIR
+#  curl $DEMO_URL -o q2-314-demo-x86.exe
+#  mkdir temp
+#  pushd temp
+#    unzip $OPENSHIFT_DATA_DIR/q2-314-demo-x86.exe
+#    mv Install/Data/baseq2 ..
+#  popd
+#  rm -f q2-314-demo-x86.exe
+#  rm -rf temp
+#fi
+#if [[ ! -f $OPENSHIFT_DATA_DIR/q2_textures.zip ]]
+#then
+#  curl $TEXTURE_URL -o $OPENSHIFT_DATA_DIR/q2_textures.zip
+#fi
+#if [[ ! -f $OPENSHIFT_DATA_DIR/models.zip ]]
+#then
+#  curl $MODELS_URL -o $OPENSHIFT_DATA_DIR/models.zip
+#fi
+
+
+
+#pushd $OPENSHIFT_REPO_DIR/war
+#  cp -r $OPENSHIFT_DATA_DIR/baseq2 .
+#  pushd baseq2    
+#    unzip $OPENSHIFT_DATA_DIR/q2_textures.zip
+#    unzip $OPENSHIFT_DATA_DIR/models.zip
+#  popd
+#popd
