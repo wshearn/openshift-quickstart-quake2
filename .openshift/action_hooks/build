@@ -3,6 +3,18 @@
 # available.  Otherwise it will execute while your application is stopped
 # before the deploy step.  This script gets executed directly, so it
 # could be python, php, ruby, etc.
+
+# Build Lame for sound
+pushd $OPENSHIFT_REPO_DIR
+mkdir sources
+pushd sources
+wget 'http://downloads.sourceforge.net/project/lame/lame/3.99/lame-3.99.5.tar.gz?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Flame%2Ffiles%2Flame%2F3.99%2F&ts=1355775684&use_mirror=superb-dca3'
+tar -xzvf lame-3.99.5.tar.gz
+pushd lame-3.99.5
+./configure --prefix="$OPENSHIFT_DATA_DIR/lame/" && make && make install
+export PATH="$PATH:$OPENSHIFT_DATA_DIR/lame/bin:$OPENSHIFT_REPO_DIR/.openshift/bin/"
+popd
+
 pushd $OPENSHIFT_REPO_DIR
 ant war
 mv ROOT.war deployments
