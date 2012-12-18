@@ -5,6 +5,8 @@
 # could be python, php, ruby, etc.
 
 # Build Lame for sound
+# Comment this section out to disable sound, some browsers don't deal
+# with it well
 pushd $OPENSHIFT_REPO_DIR
 mkdir sources
 pushd sources
@@ -14,6 +16,7 @@ pushd lame-3.99.5
 ./configure --prefix="$OPENSHIFT_DATA_DIR/lame/" && make && make install
 export PATH="$PATH:$OPENSHIFT_DATA_DIR/lame/bin:$OPENSHIFT_REPO_DIR/.openshift/bin/"
 popd
+# End sound section
 
 pushd $OPENSHIFT_REPO_DIR
 ant war
